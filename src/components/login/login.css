@@ -1,0 +1,157 @@
+body, html{
+	width: 100%;
+	height: 100%;
+}
+body, dl, dd{
+	margin: 0;
+}
+input {
+	margin: 0;
+	padding: 0;
+}
+input::-webkit-input-placeholder {
+　　color: red;
+}
+input::-moz-placeholder {
+　　color:red;
+}
+input:-ms-input-placeholder {
+　　color:red;
+}
+.clearfix:after {
+	clear: both;
+	display: block;
+	content: "";
+}
+.loginCover {
+  position: absolute;
+	width: 100%;
+	height: 100%;
+  display: flex;
+	display: -webkit-flex;
+  display: -ms-flex;
+	justify-content: center;
+	align-items: center;
+}
+.loginBox {
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+	width: 560px;
+	height: 243px;
+	border: 1px solid #c7cbd0;
+	border-radius: 5px;
+	box-shadow: 0 -3px #d3d3d3 inset;
+}
+.loginInput {
+	position: relative;
+	-webkit-flex: 1.42 0 0;
+  -ms-flex: 1.42 0 0;
+	padding:  25px 19px 0 19px;
+	border-right: 1px solid #dbdee2;
+}
+.loginText {
+	position: relative;
+	flex: 1 0 0;
+  -ms-flex: 1 0 0;
+	padding:  25px 19px 0 19px;
+}
+.sign {
+	width: 100%;
+	height: 32px;
+	border-bottom: 1px solid #e6e7e7;
+}
+.sign span {
+	color: #7e8085;
+	font-size: 16px;
+	font-family: helvetica;
+	font-weight: bold;
+}
+.signInput {
+	color: #797b80;
+	font-size: 13px;
+	font-family: helvetica;
+}
+.signInput dt {
+	float: left;
+	width: 61px;
+	margin-right: 10px;
+	line-height: 29px;
+}
+.signInput dd {
+	float: left;
+	width: 211px;
+	height: 29px;
+	border: 1px solid #cdcdcd;
+	border-radius: 3px;
+	box-sizing: border-box;
+	box-shadow: 0 1px #dcdddd;
+}
+.signInput dd input {
+	width: 100%;
+	height: 100%;
+	border: none;
+	text-indent: 5px;
+}
+.signInput .username {
+	margin-top: 19px;
+}
+.signInput .password {
+	margin-top: 16px;
+}
+.signHandle {
+	position: absolute;
+	right: 19px;
+	bottom: 25px;
+}
+.signInHandle, .signUpHandle {
+	display: flex;
+	width: 99px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #61666e;
+	background: #7a8899;
+	color: #fff;
+	border-radius: 2px;
+	cursor: pointer;
+	-webkit-user-select: none;
+}
+.signInHandle div:nth-of-type(1), .signUpHandle div:nth-of-type(1){
+	flex: 2 0 0;
+	text-align: center;
+	font-size: 12px;
+	font-family: helvetica;
+	border-right:1px solid #61666e;
+}
+.signInHandle div:nth-of-type(2), .signUpHandle div:nth-of-type(2){
+	flex: 1 0 0;
+	text-align: center;
+}
+.code {
+	padding-top: 16px;
+	height: 88px;
+	font: 12px/18px helvetica;
+	color: #919497;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5;
+	overflow: hidden;
+}
+.btn {
+	position: absolute;
+	left: 19px;
+	bottom: 25px;
+  padding: 0!important;
+}
+.createAccount, .loginin {
+	width: 123px;
+	height: 30px;
+	border: 1px solid #cacccf;
+	border-radius: 3px;
+	background: #dde4f0;
+	font: 12px/30px helvetica;
+	color: #66717e;
+	text-align: center;
+	cursor: pointer;
+	-webkit-user-select: none;
+}

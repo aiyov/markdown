@@ -1,0 +1,33 @@
+<div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="col-sm-6">标题</th>
+      <th class="col-sm-1">作者</th>
+      <th class="col-sm-3 txtc">时间</th>
+      <th class="col-sm-1 txtc">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-if="!comments.length">
+      <td colspan="4">暂无评论</td>
+    </tr>
+    <template v-for="item in comments">
+      <tr>
+        <td>
+          RE：<router-link v-if="item.article" :to="{ name: 'content', query: { article: item.article._id }}">{{item.article.title}}</router-link>
+        </td>
+        <td>{{item.name}}</td>
+        <td class="txtc">{{item.addTime}}</td>
+        <td class="txtc">
+          <a href="javascript:;" @click="removeArticle(item._id)">删除</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">{{item.comment}}</td>
+      </tr>
+    </template>
+    </tbody>
+  </table>
+  <page v-if="comments.length" :page="page" :pages="pages" @changePage="getComments"></page>
+</div>

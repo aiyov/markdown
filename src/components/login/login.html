@@ -1,0 +1,45 @@
+	<div class="loginCover">
+			<div class="loginBox">
+				<div class="loginInput">
+					<div class="sign">
+						<span v-if="showLogin">sign-in to your account</span>
+						<span v-else>sign-up your account</span>
+					</div>
+					<div class="signInput">
+						<dl class="username clearfix">
+							<dt>Username:</dt>
+							<dd>
+								<input type="text" v-model="username" name="username" :placeholder="showTips" />
+							</dd>
+						</dl>
+						<dl class="password clearfix">
+							<dt>Password:</dt>
+							<dd>
+								<input type="password" v-model="password" name="password" />
+							</dd>
+						</dl>
+					</div>
+					<div class="signHandle">
+						<div class="signInHandle" v-if="showLogin">
+							<div class="text" @click="login">Sign-in</div>
+							<div class="ico">▶</div>
+						</div>
+						<div class="signUpHandle"  v-else>
+							<div class="text" @click="sign">Sign-up</div>
+							<div class="ico">▶</div>
+						</div>
+					</div>
+				</div>
+				<div class="loginText">
+					<div class="sign">
+						<span>Create an account</span>
+					</div>
+					<div class="code">To iterate is human, to recurse divine.Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program</div>
+					<div class="btn">
+						<div class="createAccount" v-if="showLogin" @click="changeShow">Create an account</div>
+						<div class="loginin" v-else @click="changeShow">Just login in</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		

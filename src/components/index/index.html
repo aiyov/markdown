@@ -1,0 +1,124 @@
+<div class="bg">
+  <header class="navbar-fixed-top header">
+    <blogtitle :login="login"></blogtitle>
+  </header>
+  <div class="container content">
+    <div class="row">
+      <div class="col-md-3 hidden-sm hidden-xs">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <span class="command glyphicon glyphicon-fire"></span>
+              <span>热门推荐</span>
+            </h3>
+          </div>
+          <div class="list-group">
+            <router-link :to="{ name: 'content', query: { article: item._id }}" class="list-group-item clearfix"
+                         v-for="item,index in hotArticle">
+              <span>{{index + 1+'.'}}</span>
+              <span>{{item.title}} </span>
+              <span class="badge">{{item.view}}阅读</span>
+            </router-link>
+          </div>
+        </div>
+      </div>
+      <!--中间栏-->
+      <div class="col-md-6 col-sm-8 no-padding-left-md no-padding-right-sm">
+        <div class="panel-body" v-if="!article.length">暂无更多文章</div>
+        <router-link :to="{ name: 'content', query: { article: item._id }}" v-for="item in article">
+          <div class="panel panel-default">
+            <div class="panel-heading article">
+              <h4><a href="">{{item.title}}</a></h4>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-3 blog-list-img hidden-xs">
+                  <img width="100%" src="../../assets/img/noimg.jpg" alt="">
+                </div>
+                <div class="col-sm-9">
+                  <a href="">摘要：{{item.description}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <div class="publicDate">
+                <span>发布日期：</span>
+                <span>{{item.addTime}}</span>
+              </div>
+              <div class="publicInfo">
+                <span>阅读({{item.view}})</span>
+                <span>评论({{item.commentNumber}})</span>
+                <span class="tag">标签：
+                    <h4>
+                        <span class="label label-default">{{item.labels.labelName}}</span>
+                    </h4>
+                </span>
+              </div>
+            </div>
+          </div>
+        </router-link>
+        <page v-if="article.length" :page="page" :pages="pages" @changePage="getPage"></page>
+      </div>
+      <!--第三栏-->
+      <div class="col-md-3 col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span class="glyphicon glyphicon-tags" style="margin-right: 10px;top: 2px;"></span>
+            <span>标签分类</span>
+          </div>
+          <div class="panel-body">
+            <a @click="chooseLabel(label)" v-for="label in labels" href="javascript:;"
+               :class="{'active': label.labelName === selectLabel.labelName}" class="blog-list-tag">
+              {{label.labelName}} ({{label.number}})
+            </a>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span class="glyphicon glyphicon-comment" style="margin-right: 10px;top: 3px;"></span>
+            <span>最新评论</span>
+          </div>
+          <div class="list-group">
+            <div class="list-group-item" v-if="!comments.length">暂无评论</div>
+            <router-link class="list-group-item" :to="{ name: 'content', query: { article: item.article._id }}"
+                         v-for="item, index in comments">
+              <p>
+                {{index+1}}.
+                <strong>“{{item.name}}”</strong>
+                在《 {{item.article.title}} 》
+                说道：
+              </p>
+              <p>{{item.comment}}</p>
+              <p class="no-margin text-color">
+                <span class="glyphicon glyphicon-time" style="top: 2px;"></span>
+                <span class="">{{item.addTime}}</span>
+              </p>
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--尾部-->
+  <nav class="navbar navbar-inverse footer">
+    <div class="container">
+      <p class="footer-text">
+        Copyright &copy; 2017 lavyun. All Rights Reserved. 皖ICP备17014152号-1
+      </p>
+      <p class="footer-text hidden-xs">
+        Thanks for
+        <a href="http://www.qcloud.com" target="_blank" class="icon-tengxunyun iconfont footer-icon a-text"
+           title="腾讯云"></a>
+        <a href="http://www.qiniu.com" target="_blank" class="icon-qiniu1 iconfont footer-icon a-text" title="七牛云"></a>
+      </p>
+      <p class="footer-text">
+        Designed by lavyun
+        <a href="mailto:lavyun@163.com" target="_blank" class="icon-youxiang1 iconfont footer-icon a-text"></a>
+        <a href="http://weibo.com/u/5921186675" target="_blank"
+           class="icon-xinlangweibo1 iconfont footer-icon a-text"></a>
+        <a href="https://github.com/lavyun" target="_blank" class="icon-github1 iconfont footer-icon a-text"></a>
+      </p>
+    </div>
+  </nav>
+  <search ref="searchArticle"></search>
+</div>

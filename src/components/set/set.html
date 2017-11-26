@@ -1,0 +1,54 @@
+<div>
+  <div class="mb5 clearfix">
+    <div class="form-group col-sm-3 no-padding-right">
+      <label for="blogName" class="gray">Blog name</label>
+      <input type="email" maxlength="12" class="form-control" id="blogName" placeholder="blog name" v-model="blog.name" />
+    </div>
+  </div>
+  
+  <div class="clearfix">
+    <div class="form-group col-sm-4 no-padding-right">
+      <label for="Email" class="gray">Email</label>
+      <input type="email" class="form-control" id="Email" placeholder="email" v-model="blog.email" />
+      <span id="helpBlock" class="help-block">Send to this mailbox when you have a message</span>
+    </div>
+  </div>
+  
+  <div class="mb10 clearfix">
+    <div class="form-group col-sm-8 no-padding-right">
+      <label for="blogDescription" class="gray">Blog description</label>
+      <input type="email" maxlength="100" class="form-control" id="blogDescription" placeholder="blog description" v-model="blog.description" />
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="form-group col-sm-8 no-padding-right">
+      <label for="blogDescription" class="gray">有评论是否邮件通知</label>
+      <div class="radio no-margin-top clearfix">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios1" value="true" @click="inFrom(1)" :checked='blog.emailInfrom == true' />
+          是
+        </label>
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" @click="inFrom(0)" :checked='blog.emailInfrom == false' />
+          否
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="mb20 clearfix">
+    <div class="form-group no-padding-right">
+      <label for="blogName" class="gray">版权申明</label>
+      <div class="checkbox">
+        <label class="col-sm-8" v-if="blog.copyright">
+          <input type="checkbox" class="mt11" v-model="blog.copyright.onOff"/>
+          <input type="email" class="form-control"  id="Copyright" placeholder="本文为博主原创文章，未经博主允许不得转载。" v-model="blog.copyright.info" />
+        </label>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary" @click="changeInfo">保存配置</button>
+  <span v-if="updataReasult">
+    <span class="text-success" v-if="updataReasult">保存成功!</span>
+    <span class="text-danger" v-if="!updataReasult">保存失败!</span>
+  </span>
+</div>

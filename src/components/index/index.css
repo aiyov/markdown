@@ -1,0 +1,127 @@
+h4 {
+  margin: 0 !important;
+}
+
+a {
+  color: #333 !important;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+@media (min-width: 992px) {
+  .no-padding-left-md {
+    padding-left: 0 !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .no-padding-right-sm {
+    padding-right: 0 !important;
+  }
+}
+
+.label-default {
+  background: #f1f1f1 !important;
+  color: #858585 !important;
+}
+
+.label-default:hover {
+  background: #5cb85c !important;
+  color: #fff !important;
+}
+
+.active {
+  background: #5cb85c;;
+}
+
+/*内容部分*/
+.header {
+  background: ghostwhite;
+}
+.bg {
+  padding-bottom: 140px;
+  position: relative;
+  min-height: 100%;
+  background: #f4f4f4;
+}
+.content {
+  padding-top: 88px;
+}
+
+.content > div > div div {
+  background-color: #fff;
+}
+
+.panel-heading, .panel {
+  background-color: #fff !important;
+}
+
+.command {
+  margin-right: 5px;
+}
+
+.article a {
+  color: #868686 !important;
+}
+
+.article a:hover {
+  color: limegreen !important;
+}
+
+.publicInfo span {
+  margin-right: 20px;
+}
+
+.publicInfo h4 {
+  display: inline-block;
+}
+
+.blog-list-tag {
+  padding: 4px 10px;
+  color: #868686;
+  border: 1px dashed #a4a4a4;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.blog-list-tag:hover {
+  background: #5cb85c;
+  color: #fff !important;
+}
+
+/*翻页*/
+.page_num {
+  text-align: center;
+  background: #f1f1f1 !important;
+}
+
+.page_num li a:hover {
+  background-color: #5cb85c !important;
+  color: #fff !important;
+}
+
+.page_num li a.active {
+  background-color: #5cb85c !important;
+  color: #fff !important;
+}
+
+.page_num li a {
+  margin: 0 8px;
+}
+
+/*尾部*/
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #242424 !important;
+  padding: 20px 0;
+  margin-top: 20px;
+  color: #fff;
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
+}

@@ -1,0 +1,161 @@
+<div style="background: #fff">
+  <header class="header">
+    <blogtitle :login="login"></blogtitle>
+  </header>
+  <!--<blogtitle :login="login"></blogtitle>-->
+  <div class="container contentInfo">
+    <div class="row">
+      <!--article content-->
+      <div class="col-md-9 col-sm-9 no-padding-left-md">
+        <div class="panel panel-default">
+          <div class="panel-heading articlebox">
+            <h1>{{article.title}}</h1>
+            <div class="publicInfo">
+              <span class="btn btn-default brand">原创</span>
+              <span>发布日期：{{article.addTime}}</span>
+              <span class="tag">标签：
+                <h4>
+                  <span v-if="article.labels" class="label label-default">{{article.labels.labelName}}</span>
+                </h4>
+              </span>
+              <span class="r no-margin-right">
+                <span>
+                  <span class="glyphicon glyphicon-eye-open no-margin-right"></span>
+                  <span>{{article.view}}</span>
+                </span>
+                <a v-if="user" href="javascript:;">
+                  <span class="glyphicon glyphicon-edit no-margin-right"></span>
+                  <span>编辑</span>
+                </a>
+                <a v-if="user" href="javascript:;" @click="removeArticle(article._id)">
+                  <span class="glyphicon glyphicon-trash no-margin-right"></span>
+                  <span class="no-padding-right">删除</span>
+                </a>
+              </span>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-sm-12">
+                <p class="mb20">简介：{{article.description}}</p>
+                <div class="articleContent" v-html="article.content"></div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">版权声明：本文为博主原创文章，未经博主允许不得转载。</div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+            <h2 class="panel-title l">留言</h2>
+            <a href="javascript:;" @click="goTop" class="r">
+              <span>回到顶部</span>
+              <span class="glyphicon glyphicon-arrow-up"></span>
+            </a>
+          </div>
+          <div class="panel-body" v-if="!comment.length">暂无评论</div>
+          <div class="panel-body">
+            <div class="comment" v-for="item, index in comment">
+              <div class="clearfix mb10">
+                <span class="l">{{item.name}}
+                  <span v-if="item.commentedName">@ {{item.commentedName}}</span> 说:</span>
+                <span class="r">
+                  <a href="jacascript:;" v-if="user" class="mr20 text-danger" @click="delComment(item._id, index)">删除</a>
+                  <a href="jacascript:;" class="mr20" @click="commented(item)">
+                    <span class="glyphicon glyphicon-comment"></span>
+                  </a>
+                  <span>{{item.addTime}}</span>
+                </span>
+              </div>
+              <p class="text-primary">{{item.comment}}</p>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <p>添加一条评论:<span v-if="newComment.commented">to {{newComment.commentedName}}</span>
+              <a href="javascript:;" v-if="newComment.commented" class="text-uppercase text-danger" @click="delCommented">x</a>
+            </p>
+            <div class="writeComment">
+              <textarea placeholder="发表评论" name="" id="" rows="5" v-model="newComment.comment"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="name">昵称</label>
+              <input type="email" class="form-control" id="name" placeholder="required" v-model="newComment.name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" v-model="newComment.email" placeholder="When someone responds to you, it will be sent to the completed mailbox">
+            </div>
+            <div>
+              <button type="button" class="btn btn-success" @click="addComment">回复</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--第三栏-->
+      <div class="col-md-3 col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span class="glyphicon glyphicon-tags" style="margin-right: 10px;top: 2px;"></span>
+            <span>标签分类</span>
+          </div>
+          <div class="panel-body">
+            <a v-for="label in labels" href="javascript:;" class="blog-list-tag">
+              {{label.labelName}} ({{label.number}})
+            </a>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <span class="command glyphicon glyphicon-pencil"></span>
+              <span>最新文章</span>
+            </h3>
+          </div>
+          <div class="list-group">
+            <router-link @click.native="reload" :to="{ name: 'content', query: { article: item._id }}" class="list-group-item"
+                         v-for="item,index in newArticle">
+              <span>{{index + 1+'.'}}</span>
+              <span>{{item.title}} </span>
+            </router-link>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <span class="command glyphicon glyphicon-fire"></span>
+              <span>热门文章</span>
+            </h3>
+          </div>
+          <div class="list-group">
+            <router-link @click.native="reload" :to="{ name: 'content', query: { article: item._id }}" class="list-group-item clearfix"
+                         v-for="item,index in hotArticle">
+              <span>{{index + 1+'.'}}</span>
+              <span>{{item.title}} </span>
+              <span class="badge">{{item.view}}阅读</span>
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--尾部-->
+  <nav class="navbar navbar-inverse footer">
+    <div class="container">
+      <p class="footer-text">
+        Copyright &copy; 2017 lavyun. All Rights Reserved. 皖ICP备17014152号-1
+      </p>
+      <p class="footer-text hidden-xs">
+        Thanks for
+        <a href="http://www.qcloud.com" target="_blank" class="icon-tengxunyun iconfont footer-icon a-text"
+           title="腾讯云"></a>
+        <a href="http://www.qiniu.com" target="_blank" class="icon-qiniu1 iconfont footer-icon a-text" title="七牛云"></a>
+      </p>
+      <p class="footer-text">
+        Designed by lavyun
+        <a href="mailto:lavyun@163.com" target="_blank" class="icon-youxiang1 iconfont footer-icon a-text"></a>
+        <a href="http://weibo.com/u/5921186675" target="_blank"
+           class="icon-xinlangweibo1 iconfont footer-icon a-text"></a>
+        <a href="https://github.com/lavyun" target="_blank" class="icon-github1 iconfont footer-icon a-text"></a>
+      </p>
+    </div>
+  </nav>
+</div>

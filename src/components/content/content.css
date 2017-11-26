@@ -1,0 +1,135 @@
+* {
+  transform: none!important;
+}
+html {
+    width: 100%;
+    height: 100%;
+    background: #f1f1f1;
+}
+.articleContent img {
+  width: 100%;
+}
+body {
+    background: #f1f1f1!important;
+    height: 100%;
+}
+h4, h3, h2 {
+    margin: 0!important;
+}
+h1 {
+  margin: 20px 0;
+  font-size: 24px!important;
+  font-weight: 600;
+}
+.l {
+  float: left;
+}
+.r {
+  float: right;
+}
+.mb10 {
+  margin-bottom: 10px!important;
+}
+.mb20 {
+  margin-bottom: 20px!important;
+}
+.pb0 {
+  padding-bottom: 0;
+}
+.mr20 {
+  margin-right: 20px;
+}
+.brand {
+  padding: 0 10px!important;
+  border-radius: 2px!important;
+}
+a {
+    color: #333!important;
+    text-decoration: none;
+}
+.no-margin-right {
+  margin-right: 0!important;
+}
+a:hover {
+    text-decoration: none!important;
+}
+@media (min-width: 992px) {
+    .no-padding-left-md {
+        padding-left: 0!important;
+    }
+}
+@media (min-width: 768px) {
+    .no-padding-right-sm {
+        padding-right: 0!important;
+    }
+}
+.label-default {
+    background: #f1f1f1!important;
+    color: #858585!important;
+}
+.label-default:hover {
+    background: #5cb85c!important;
+    color: #fff!important;
+}
+/*内容部分*/
+.header {
+  background: ghostwhite;
+}
+.contentInfo {
+    margin-top: 20px;
+}
+.articlebox {
+    background-color: #fff;
+}
+.publicInfo {
+  margin-top: 10px;
+}
+.panel-heading, .panel {
+    background-color: #fff!important;
+}
+.command {
+    margin-right: 5px;
+}
+.article a {
+    color: #868686!important;
+}
+.article a:hover {
+    color: limegreen!important;
+}
+.publicInfo span{
+    margin-right: 20px;
+}
+.publicInfo h4 {
+    display: inline-block;
+}
+
+.blog-list-tag {
+    padding: 4px 10px;
+    color: #868686;
+    border: 1px dashed #a4a4a4;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+.blog-list-tag:hover {
+    background: #5cb85c;
+    color: #fff!important;
+}
+
+.writeComment textarea{
+  width: 100%;
+  resize: none;
+}
+.comment {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #888;
+}
+/*尾部*/
+.footer {
+    background-color: #242424!important;
+    padding: 20px 0;
+    margin-top: 20px;
+    color: #fff;
+    border-radius: 0!important;
+    margin-bottom: 0!important;
+}

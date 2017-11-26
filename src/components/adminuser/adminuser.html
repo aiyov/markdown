@@ -1,0 +1,28 @@
+<div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="col-sm-1">#</th>
+      <th class="col-sm-3">id</th>
+      <th class="col-sm-1">username</th>
+      <th class="col-sm-3">password</th>
+      <th class="col-sm-2">isAdmin</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="item, index in users">
+      <td>{{index+1}}</td>
+      <td>{{item._id}}</td>
+      <td>
+        <input type="text" v-model="item.username" readonly />
+      </td>
+      <td>
+        <input type="text" v-model="item.password" readonly />
+      </td>
+      <td>true</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="alert alert-success" role="alert">提示：点击可以修改用户名，密码，管理权限，回车确认！！！</div>
+  <page :page="page" :pages="pages" @changePage="getUsers"></page>
+</div>

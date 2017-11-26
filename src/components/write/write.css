@@ -1,0 +1,132 @@
+#app {
+  position: fixed;
+  top: 102px;
+  width: 100%;
+}
+.mr20 {
+  margin-right: 20px;
+}
+.dropdown {
+  display: inline-block;
+}
+.dropdown-toggle {
+  position: relative;
+  display: block;
+  width: 109px!important;
+}
+.dropdown-toggle:hover {
+  text-decoration: none;
+}
+.smallTitle {
+  font-size: 10px!important;
+  margin-left: -12px;
+}
+.navbar-brand {
+  font-size: 40px!important;
+  font-family: "Droid Sans Mono Dotted";
+}
+.dropdown-menu {
+  min-width: 109px!important;
+  width: 109px!important;
+  margin: 0!important;
+  max-height: 180px;
+  overflow: auto;
+}
+.caret {
+  position: absolute;
+  right: 15px;
+  top: 14px;
+}
+.select {
+  padding: 5px 15px!important;
+  border: 1px solid #808080!important;
+  border-radius: 5px!important;
+}
+.title {
+  height: 50px;
+  background: #fff;
+  border: none!important;
+}
+.title .form-control, .title > div {
+  height: 100%;
+  color: black;
+  border: none!important;
+  font: 22px/50px '宋体';
+}
+.title .row, .article .row {
+  margin: 0;
+}
+.title .row div {
+  height: 100%;
+}
+.title .form-control {
+  outline: none!important;
+  border: none!important;
+  box-shadow: none!important;
+}
+.title .form-control:focus {
+  outline: none!important;
+  box-shadow: none!important;
+}
+.title .btn {
+  width: 100px!important;
+  height: 80%;
+  margin-top: 5px;
+  border-radius: 0!important;
+}
+.markdown-body {
+  position: fixed;
+  top: 102px;
+  left: 0;
+  right: 0!important;
+  bottom: 0;
+}
+.fullscreen  {
+  top: 50px!important;
+}
+.article {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.8);
+}
+.article .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+textarea {
+  resize: none;
+}
+.commandLabel {
+  width: 100%;
+  padding: 0 15px 15px;
+}
+.writeLabel {
+  width: 100%;
+  padding: 0 15px 15px 15px;
+}
+.labelContent {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+.labelContent input, .labelContent input:focus {
+  border: none;
+  outline: none;
+}
+.badge {
+  padding: 3px;
+  background: #5cb85c!important;
+}
+.r {
+  float: right;
+}
+.panel-footer {
+  background: #ffffff;
+}
+.panel-footer .btn {
+  padding: 6px 28px;
+}
